@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cakes', function (Blueprint $table) {
+        Schema::create('interesteds', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('weight'); //peso em gramas
-            $table->float('price',3, 2); //preco
-            $table->integer('amount'); //quantidade disponivel
+            $table->foreignId('cake_id')->constrained()->onDelete('cascade');
+            $table->string('email');
+            $table->boolean('sent');//enviado
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cakes');
+        Schema::dropIfExists('interesteds');
     }
 };
