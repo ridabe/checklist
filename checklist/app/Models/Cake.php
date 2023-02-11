@@ -15,4 +15,8 @@ class Cake extends Model
         'price',
         'amount'
     ];
+
+    public function hasInteresteds(){
+        return $this->hasMany(Interested::class);
+    }
 }

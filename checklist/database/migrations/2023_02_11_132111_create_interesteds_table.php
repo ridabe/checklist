@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('interesteds', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('cake_id')->constrained()->onDelete('cascade');
+            $table->foreignId('cake_id')->constrained('cakes')->onDelete('cascade');
             $table->string('email');
             $table->boolean('sent');//enviado
             $table->timestamps();

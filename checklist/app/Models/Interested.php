@@ -14,5 +14,9 @@ class Interested extends Model
         'email',
         'cake_id',
         'sent'
-    ]
+    ];
+
+    public function cake(){
+        return $this->belongsTo(Cake::class);
+    }
 }

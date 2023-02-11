@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cake;
+use App\Http\Resources\CakeResource;
 
 class CakeController extends Controller
 {
+    // protected $cakeResource;
+
+    // public function __construct(CakeResource $cakeResource)
+    // {
+    //     $this->$cakeResource = $cakeResource;
+    // }
    
-    public function index()
+    public function index(Cake $cake)
     {
-        return Cake::all();
+        $getCake = $cake->get();        
+        return CakeResource::collection($getCake);
     }   
 
     public function store(Request $request) // Obs de melhorias: Criar uma request somente para cake
@@ -24,8 +32,8 @@ class CakeController extends Controller
             'amount' => 'required',
         ]);
                   
-
-        return Cake::create($request->all());
+        
+        return CakeResource::make(Cake::create($request->all()));
         
     }
 
