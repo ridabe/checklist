@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cake extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'weight',
+        'price',
+        'amount'
+    ];
 }

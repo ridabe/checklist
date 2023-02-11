@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('weight'); //peso em gramas
-            $table->float('price',3, 2); //preco
+            $table->float('price'); //preco
             $table->integer('amount'); //quantidade disponivel
             $table->timestamps();
         });
