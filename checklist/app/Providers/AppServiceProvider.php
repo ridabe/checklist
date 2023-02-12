@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\Http\Interfaces\CakeInterface;
-use app\Http\Interfaces\InterestedInterface;
+use App\Http\Interfaces\InterestedInterface;
 use App\Http\Repositories\CakeRepository;
-use app\Http\Repositories\InterestedRepository;
+use App\Http\Repositories\InterestedRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

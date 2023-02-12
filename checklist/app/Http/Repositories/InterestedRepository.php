@@ -2,7 +2,7 @@
 
 namespace app\Http\Repositories;
 
-use app\Http\Interfaces\InterestedInterface;
+use App\Http\Interfaces\InterestedInterface;
 use App\Models\Interested;
 
 class InterestedRepository implements InterestedInterface
@@ -34,8 +34,8 @@ class InterestedRepository implements InterestedInterface
         return $this->model->findOrFail($id)->update($data->all());
     }
 
-    public function deleteInterested(int $id)
+    public function deleteInterested(int $id): void
     {
-        return $this->model->findOrFail($id)->delete();
+        $this->model->findOrFail($id)->delete();
     }
 }

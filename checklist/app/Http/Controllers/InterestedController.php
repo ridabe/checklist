@@ -5,45 +5,43 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Interested;
 use App\Http\Resources\InterestedResource;
+use App\Http\Services\InterestedService;
+use Illuminate\Http\Response;
+use App\Exceptions\Handler;
 
 class InterestedController extends Controller
 {
-    public function index(Interested $interested)
+    protected $interestedService;
+
+    public function __construct(
+        InterestedService $interestedService
+
+    ){
+        $this->interestedService = $interestedService;
+    }
+    public function index()
     {
-        $getInterested = $interested->get();    
+        $getInterested = $this->interestedService->getInterestedList();
         return InterestedResource::collection($getInterested);
-    }   
+    }
 
     public function store(Request $request) // Obs de melhorias: Criar uma request somente para cake
     {
-        
-        $request->validate([
-            'name' => 'required',
-            'cake_id' => 'required',
-            'email' => 'required',
-            'sent' => 'required',
-        ]);
-                  
-
-        return InterestedResource::make(Interested::create($request->all()));
-        
+        return InterestedResource::make($this->interestedService->createInterested($request));
     }
 
-    public function show($id)
+    public function show(int $id)
     {
-        return Interested::findOrFail($id);
-    }   
-   
-    public function update(Request $request, $id)
-    {
-        $interested = Interested::findOrFail($id)->update($request->all());
-
-        return $interested;
-        
+        return InterestedResource::make($this->interestedService->getInterestedById($id));
     }
-   
-    public function destroy($id): void
+
+    public function update(Request $request, int $id)
     {
-        Interested::findOrFail($id)->delete();
+        return $this->interestedService->updateInterested($request, $id);
+    }
+
+    public function destroy(int $id): void
+    {
+        $this->interestedService->deleteInterested($id);
     }
 }

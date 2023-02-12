@@ -13,5 +13,5 @@ interface InterestedInterface
     public function updateInterested($data, int $id);
 
     public function deleteInterested(int $id): void;
-
 }
+

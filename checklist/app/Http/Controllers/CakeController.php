@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Cake;
 use App\Http\Resources\CakeResource;
 use App\Http\Services\CakeService;
 use Illuminate\Http\Response;
