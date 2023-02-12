@@ -14,7 +14,6 @@ Route::put('/cake/{id}', [CakeController::class, 'update']);
 //Rotas interested
 
 Route::apiResource('/interesteds', InterestedController::class);
-// Route::get('/interesteds', [InterestedController::class, 'index']);
 Route::get('/interested/{id}', [InterestedController::class, 'show']);
 Route::delete('/interested/{id}', [InterestedController::class, 'destroy']);
 Route::put('/interested/{id}', [InterestedController::class, 'update']);

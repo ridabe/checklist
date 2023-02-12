@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Interested;
 use App\Http\Resources\InterestedResource;
 use App\Http\Services\InterestedService;
 use Illuminate\Http\Response;
