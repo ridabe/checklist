@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class sendInterested extends Mailable
+class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,12 +18,9 @@ class sendInterested extends Mailable
      *
      * @return void
      */
-    protected  $nomeDestintario;
-    protected $nomeBolo;
-    public function __construct(string $nomeDestintario, string $nomeBolo)
+    public function __construct()
     {
-        $this->nomeBolo = $nomeBolo;
-        $this->nomeDestintario = $nomeDestintario;
+        //
     }
 
     /**
@@ -34,11 +31,7 @@ class sendInterested extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('teste@testechecklist.com', 'Riardo Bene'),
-            replyTo: [
-                new Address('teste@testechecklist.com', 'Riardo Bene'),
-            ],
-            subject: 'Temos seu bolo te esperando!!',
+            subject: 'Order Shipped',
         );
     }
 
@@ -50,11 +43,7 @@ class sendInterested extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'view.emails.interestedEmail',
-            with: [
-                'nomeBolo' => $this->nomeBolo,
-                'nomeDestinatario' => $this->nomeDestintario,
-            ],
+            markdown: 'emails.interestedEmail',
         );
     }
 
