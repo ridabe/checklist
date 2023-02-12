@@ -13,9 +13,8 @@ class CakeService
         $this->cakeModel = $cake;
     }
     public function getCakeList()
-    {        
-        $getCake = $this->cakeModel->get();        
-        return $getCake;
+    {
+        return $this->cakeModel->get();
     }
 
 }

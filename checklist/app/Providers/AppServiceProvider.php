@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use app\Http\Interfaces\CakeInterface;
+use app\Http\Repositorys\CakeRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(CakeInterface::class, CakeRepository::class);
     }
 
     /**
