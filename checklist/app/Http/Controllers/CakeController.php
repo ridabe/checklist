@@ -7,55 +7,54 @@ use App\Http\Controllers\Controller;
 use App\Models\Cake;
 use App\Http\Resources\CakeResource;
 use App\Http\Services\CakeService;
+use Illuminate\Http\Response;
+use App\Exceptions\Handler;
+
 
 class CakeController extends Controller
 {
     protected $cakeResource;
     protected $cakeService;
 
-    public function __construct(       
+    public function __construct(
         CakeService $cakeService
 
-    ){        
+    ){
         $this->cakeService = $cakeService;
     }
-   
+
     public function index()
-    {       
-        $getCake = $this->cakeService->getCakeList();      
+    {
+
+        $getCake = $this->cakeService->getCakeList();
         return CakeResource::collection($getCake);
-    }   
+    }
 
     public function store(Request $request) // Obs de melhorias: Criar uma request somente para cake
     {
-        
-        $request->validate([
-            'name' => 'required',
-            'weight' => 'required',
-            'price' => 'required',
-            'amount' => 'required',
-        ]);
-                  
-        
-        return CakeResource::make(Cake::create($request->all()));
-        
+        return CakeResource::make($this->cakeService->createCake($request));
     }
 
-    public function show($id)
+    public function show(int $id)
     {
-        return Cake::findOrFail($id);
-    }   
-   
-    public function update(Request $request, $id)
-    {
-        $cake = Cake::findOrFail($id)->update($request->all());
-
-        return $cake;
-        
+        $response = $this->cakeService->getCakeById($id);
+        return CakeResource::make($response);
     }
-   
-    public function destroy($id): void
+
+    public function update(Request $request, int $id)
     {
-        Cake::findOrFail($id)->delete();
+        $cake = $this->cakeService->updateCake($request,$id);
+
+        if ($cake){
+            return Response::HTTP_CREATED;
+        }
+
+        return Response::HTTP_BAD_REQUEST;
+
+    }
+
+    public function destroy(int $id): void
+    {
+        $this->cakeService->deleteCake($id);
     }
 }

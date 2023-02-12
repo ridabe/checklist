@@ -8,9 +8,9 @@ interface CakeInterface
 
     public function getCakeById(int $id);
 
-    public function createCake(array $data);
+    public function createCake($data);
 
-    public function updateCake(array $data, int $id);
+    public function updateCake($data, int $id);
 
     public function deleteCake(int $id);
 }

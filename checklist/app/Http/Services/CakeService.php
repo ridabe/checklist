@@ -2,19 +2,50 @@
 
 namespace App\Http\Services;
 
-use App\Models\Cake;
+use App\Http\Interfaces\CakeInterface;
 
 class CakeService
 {
-    protected $cakeModel;
+    protected $interface;
 
-    public function __construct(Cake $cake)
+    public function __construct(CakeInterface $interface)
     {
-        $this->cakeModel = $cake;
+        $this->interface = $interface;
     }
     public function getCakeList()
     {
-        return $this->cakeModel->get();
+        return $this->interface->getCakeList();
     }
 
+    public function getCakeById(int $id)
+    {
+        return $this->interface->getCakeById($id);
+    }
+
+    public function createCake($data)
+    {
+        $data->validate([
+            'name' => 'required',
+            'weight' => 'required',
+            'price' => 'required',
+            'amount' => 'required',
+        ]);
+        return $this->interface->createCake($data);
+    }
+
+    public function updateCake($data, int $id)
+    {
+        $data->validate([
+            'name' => 'required',
+            'weight' => 'required',
+            'price' => 'required',
+            'amount' => 'required',
+        ]);
+        return $this->interface->updateCake($data, $id);
+    }
+
+    public function deleteCake(int $id)
+    {
+        return $this->interface->deleteCake($id);
+    }
 }

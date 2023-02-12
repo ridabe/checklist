@@ -7,7 +7,6 @@ use App\Http\Controllers\InterestedController;
 
 
 Route::apiResource('/cakes', CakeController::class);
-// Route::post('/cakes', [CakeController::class, 'store']);
 Route::get('/cake/{id}', [CakeController::class, 'show']);
 Route::delete('/cake/{id}', [CakeController::class, 'destroy']);
 Route::put('/cake/{id}', [CakeController::class, 'update']);
