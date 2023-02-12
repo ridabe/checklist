@@ -7,6 +7,7 @@ use App\Http\Controllers\InterestedController;
 
 
 Route::apiResource('/cakes', CakeController::class);
+// Route::post('/cakes', [CakeController::class, 'store']);
 Route::get('/cake/{id}', [CakeController::class, 'show']);
 Route::delete('/cake/{id}', [CakeController::class, 'destroy']);
 Route::put('/cake/{id}', [CakeController::class, 'update']);
@@ -14,6 +15,7 @@ Route::put('/cake/{id}', [CakeController::class, 'update']);
 //Rotas interested
 
 Route::apiResource('/interesteds', InterestedController::class);
+// Route::get('/interesteds', [InterestedController::class, 'index']);
 Route::get('/interested/{id}', [InterestedController::class, 'show']);
 Route::delete('/interested/{id}', [InterestedController::class, 'destroy']);
 Route::put('/interested/{id}', [InterestedController::class, 'update']);

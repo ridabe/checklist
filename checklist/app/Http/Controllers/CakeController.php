@@ -6,19 +6,23 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cake;
 use App\Http\Resources\CakeResource;
+use App\Http\Services\CakeService;
 
 class CakeController extends Controller
 {
-    // protected $cakeResource;
+    protected $cakeResource;
+    protected $cakeService;
 
-    // public function __construct(CakeResource $cakeResource)
-    // {
-    //     $this->$cakeResource = $cakeResource;
-    // }
+    public function __construct(       
+        CakeService $cakeService
+
+    ){        
+        $this->cakeService = $cakeService;
+    }
    
-    public function index(Cake $cake)
-    {
-        $getCake = $cake->get();        
+    public function index()
+    {       
+        $getCake = $this->cakeService->getCakeList();      
         return CakeResource::collection($getCake);
     }   
 
