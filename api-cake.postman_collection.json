@@ -16,17 +16,50 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/interesteds",
+							"raw": "http://127.0.0.1:8001/api/interesteds",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8001",
 							"path": [
+								"api",
 								"interesteds"
 							]
 						},
 						"description": "recuperar a lista de odos os interesados nos cakes"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "get interesteds",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/interesteds",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"interesteds"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Post Interested",
@@ -35,7 +68,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Daniely\",\n    \"cake_id\": 4,\n    \"email\": \"dannizinha_abreu@htmail.com\",\n    \"sent\": 0\n}",
+							"raw": "{\n    \"name\": \"teste3\",\n    \"cake_id\": 4,\n    \"email\": \"dannizinha_abreu@htmail.com\",\n    \"sent\": 0\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,11 +76,17 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/interesteds",
+							"raw": "http://127.0.0.1:8001/api/interesteds",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8001",
 							"path": [
+								"api",
 								"interesteds"
 							]
 						}
@@ -67,13 +106,19 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{url}}/interested/2",
+							"raw": "http://127.0.0.1:8001/api/interested/6",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8001",
 							"path": [
+								"api",
 								"interested",
-								"2"
+								"6"
 							]
 						}
 					},
@@ -85,13 +130,19 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/interested/3",
+							"raw": "http://127.0.0.1:8001/api/interested/6",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8001",
 							"path": [
+								"api",
 								"interested",
-								"3"
+								"6"
 							]
 						}
 					},
@@ -178,11 +229,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/cakes",
+					"raw": "http://127.0.0.1:8001/api/cakes",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8001",
 					"path": [
+						"api",
 						"cakes"
 					]
 				}
@@ -196,7 +253,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Bolo Cristal\",\n    \"weight\": 1200,\n    \"price\": 100,\n    \"amount\": 5\n}",
+					"raw": "{\n    \"name\": \"Bolo Ana Maria\",\n    \"weight\": 1200,\n    \"price\": 100,\n    \"amount\": 5\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -204,11 +261,17 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/cakes",
+					"raw": "http://127.0.0.1:8001/api/cakes",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8001",
 					"path": [
+						"api",
 						"cakes"
 					]
 				}
@@ -221,11 +284,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/cake/6",
+					"raw": "http://127.0.0.1:8001/api/cake/6",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8001",
 					"path": [
+						"api",
 						"cake",
 						"6"
 					]
@@ -240,11 +309,17 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/cake/7",
+					"raw": "http://127.0.0.1:8001/api/cake/7",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8001",
 					"path": [
+						"api",
 						"cake",
 						"7"
 					]
@@ -259,7 +334,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Bolo de Coco\",\n    \"weight\": 680,\n    \"price\": 35,\n    \"amount\": 2\n}",
+					"raw": "{\n    \"name\": \"Bolo de Coco\",\n    \"weight\": 680,\n    \"price\": 35,\n    \"amount\": 5\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -267,11 +342,17 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/cake/4",
+					"raw": "http://127.0.0.1:8001/api/cake/4",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8001",
 					"path": [
+						"api",
 						"cake",
 						"4"
 					]
