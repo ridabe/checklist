@@ -6,10 +6,11 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class sendInterested extends Mailable
+class SendInterested extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,13 +19,13 @@ class sendInterested extends Mailable
      *
      * @return void
      */
-    protected  $nomeDestintario;
-    protected $nomeBolo;
-    public function __construct(string $nomeDestintario, string $nomeBolo)
-    {
-        $this->nomeBolo = $nomeBolo;
-        $this->nomeDestintario = $nomeDestintario;
-    }
+//    protected  $nomeDestinatario;
+//    protected $nomeBolo;
+//    public function __construct($nomeDestinatario, $nomeBolo)
+//    {
+//        $this->nomeBolo = $nomeBolo;
+//        $this->nomeDestinatario = $nomeDestinatario;
+//    }
 
     /**
      * Get the message envelope.
@@ -50,10 +51,10 @@ class sendInterested extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'view.emails.interestedEmail',
+            markdown: 'emails.interestedEmail',
             with: [
-                'nomeBolo' => $this->nomeBolo,
-                'nomeDestinatario' => $this->nomeDestintario,
+                'nomeBolo' => "teste",
+                'nomeDestinatario' => "teste",
             ],
         );
     }
