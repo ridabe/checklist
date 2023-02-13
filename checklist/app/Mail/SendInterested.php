@@ -14,18 +14,18 @@ class SendInterested extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $dados;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-//    protected  $nomeDestinatario;
-//    protected $nomeBolo;
-//    public function __construct($nomeDestinatario, $nomeBolo)
-//    {
-//        $this->nomeBolo = $nomeBolo;
-//        $this->nomeDestinatario = $nomeDestinatario;
-//    }
+
+    public function __construct(\stdClass $dados)
+    {
+        $this->dados = $dados;
+    }
 
     /**
      * Get the message envelope.
@@ -53,8 +53,8 @@ class SendInterested extends Mailable
         return new Content(
             markdown: 'emails.interestedEmail',
             with: [
-                'nomeBolo' => "teste",
-                'nomeDestinatario' => "teste",
+                'nomeBolo' => $this->dados->nomeBolo,
+                'nomeDestinatario' => $this->dados->nomeDestinatario,
             ],
         );
     }

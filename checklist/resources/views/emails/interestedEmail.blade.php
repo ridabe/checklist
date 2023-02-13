@@ -1,10 +1,13 @@
-<x-mail::message>
-# Introduction
-<x-mail::panel>
-  Ola, :nomeDestinatario
-    O bolo :nomeBolo
-    esta disponivel em nossas lojas
-</x-mail::panel>
-Obrigado,<br>
-{{ config('app.name') }}
-</x-mail::message>
+@component('mail::message')
+    <div style="text-align:center">
+      <p style="text-align:center">
+         Olá, {{ $nomeDestinatario }},
+         seu {{ $nomeBolo }}, esta disponível!!!
+      </p>
+    </div>
+@endcomponent
+
+
+
+
+

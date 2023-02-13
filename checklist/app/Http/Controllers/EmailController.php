@@ -21,7 +21,7 @@ class EmailController extends Controller
 
     public function sendMail()
     {
-        $this->service->sendMailInterested();
+        return $this->service->sendMailInterested();
     }
 
 }

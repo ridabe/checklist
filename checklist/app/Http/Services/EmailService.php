@@ -27,13 +27,22 @@ class EmailService
     public function sendMailInterested()
     {
         $interesteds = $this->interestedInterface->getInterestedList();
-
+        $dados = new \stdClass();
         foreach ($interesteds as $interested){
-
-            $nomeDestinatario = $interested->name;
-            $nomeBolo = $this->cakeInterface->getCakeById($interested->cake_id);
             $emailDestinatario = $interested->email;
-            Mail::to($emailDestinatario)->send(new SendInterested());
+            $cake = $this->cakeInterface->getCakeById($interested->cake_id);
+            $getAmnoutCake = $cake->amount;
+            $dados->nomeDestinatario = $interested->name;
+            $dados->nomeBolo = $cake->name;
+            if($interested->sent == 0){
+                if($getAmnoutCake > 0){
+//              return new SendInterested($dados);
+                    Mail::to($emailDestinatario)->send(new SendInterested($dados));
+                    $interested->update(['sent' => 1]);
+                }
+            }
+
+
         }
     }
 }
