@@ -24,9 +24,15 @@ class CakeController extends Controller
 
     public function index()
     {
+        try {
+            $getCake = $this->cakeService->getCakeList();
+            return CakeResource::collection($getCake);
+        }
+        catch (Exception $e) {
+            $data = ["message" => "Dados nao encontrados", "error" => $e->getMessage()];
+            return response()->json($data, 200);
+        }
 
-        $getCake = $this->cakeService->getCakeList();
-        return CakeResource::collection($getCake);
     }
 
     public function store(Request $request) // Obs de melhorias: Criar uma request somente para cake
@@ -36,8 +42,15 @@ class CakeController extends Controller
 
     public function show(int $id)
     {
-        $response = $this->cakeService->getCakeById($id);
-        return CakeResource::make($response);
+        try {
+            $response = $this->cakeService->getCakeById($id);
+            return CakeResource::make($response);
+        }
+        catch (Exception $e) {
+            $data = ["message" => "Dado nao encontrado", "error" => $e->getMessage()];
+            return response()->json($data, 200);
+        }
+
     }
 
     public function update(Request $request, int $id)

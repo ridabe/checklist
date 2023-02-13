@@ -20,8 +20,14 @@ class InterestedController extends Controller
     }
     public function index()
     {
-        $getInterested = $this->interestedService->getInterestedList();
-        return InterestedResource::collection($getInterested);
+        try {
+            $getInterested = $this->interestedService->getInterestedList();
+            return InterestedResource::collection($getInterested);
+        }
+        catch (Exception $e) {
+            $data = ["message" => "Dados nao encontrados", "error" => $e->getMessage()];
+            return response()->json($data, 200);
+        }
     }
 
     public function store(Request $request) // Obs de melhorias: Criar uma request somente para cake
@@ -31,7 +37,13 @@ class InterestedController extends Controller
 
     public function show(int $id)
     {
-        return InterestedResource::make($this->interestedService->getInterestedById($id));
+        try {
+            return InterestedResource::make($this->interestedService->getInterestedById($id));
+        }
+        catch (Exception $e) {
+            $data = ["message" => "Dado nao encontrado", "error" => $e->getMessage()];
+            return response()->json($data, 200);
+        }
     }
 
     public function update(Request $request, int $id)
