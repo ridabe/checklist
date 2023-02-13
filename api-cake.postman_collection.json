@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "94250657-44b1-4a31-9e54-0812ccff486d",
+		"name": "api-cake",
+		"description": "Collection da aopi-cake para ChecklistFacil",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9609010"
+	},
+	"item": [
+		{
+			"name": "interesteds",
+			"item": [
+				{
+					"name": "get interesteds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/interesteds",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"interesteds"
+							]
+						},
+						"description": "recuperar a lista de odos os interesados nos cakes"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Interested",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Daniely\",\n    \"cake_id\": 4,\n    \"email\": \"dannizinha_abreu@htmail.com\",\n    \"sent\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/interesteds",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"interesteds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get interested by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/interested/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"interested",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete interested",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/interested/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"interested",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update interested",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Daniely Abreu\",\n    \"cake_id\": 4,\n    \"email\": \"dannizinha_abreu@htmail.com\",\n    \"sent\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/interested/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"interested",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "helpers",
+			"item": [
+				{
+					"name": "Teste Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/testeEmail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"testeEmail"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Rotas com alguns helper de testes do sistema"
+		},
+		{
+			"name": "get all list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/cakes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cakes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Cake",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bolo Cristal\",\n    \"weight\": 1200,\n    \"price\": 100,\n    \"amount\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cakes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cakes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get cake by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/cake/6",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cake",
+						"6"
+					]
+				},
+				"description": "Recuperar os dados pelo id"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cake",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/cake/7",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cake",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Cake",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bolo de Coco\",\n    \"weight\": 680,\n    \"price\": 35,\n    \"amount\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cake/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cake",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000/api",
+			"type": "string"
+		}
+	]
+}
