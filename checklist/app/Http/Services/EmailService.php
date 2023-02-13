@@ -37,7 +37,7 @@ class EmailService
             if($interested->sent == 0){
                 if($getAmnoutCake > 0){
 //              return new SendInterested($dados);
-                    Mail::to($emailDestinatario)->send(new SendInterested($dados));
+                    Mail::to($emailDestinatario)->queue(new SendInterested($dados));
                     $interested->update(['sent' => 1]);
                 }
             }
