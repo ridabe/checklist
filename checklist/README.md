@@ -31,6 +31,7 @@ do framework Laravel em sua versão mais recente.
 
 - Após clonar o repositorio, rodar o comando "docker-compose up -d" para subir o container docker da base de dados;
 - Entrar na pasta do projeto e rodar o comando "composer install" para gerar as dependencias;
+- Iniciar o projeto com o comando "php artisan serve"
 
 ### Rotas
 **Dentro da pasta do projeto ira conter um arquivo de collection para ser utilizado no postmam**
@@ -39,11 +40,13 @@ do framework Laravel em sua versão mais recente.
 ### Utilização da queue/jobs
 **O sistema possue uma queue que dispara os emails para os interessados nos bolos.**
 
-**O job criado sera dfisparo por um "Command" criado espcificamente para ser usado dentro de uma cron e pode assim ter o agendamento destes disparos.**
+**O job criado sera disparado por um "Command" criado espcificamente para ser usado dentro de uma cron e pode assim ter o agendamento destes disparos.**
 
 **Os jobs estão sendo armazenados na base de dados na tabela jobs ate serem disparadas.**
 - Por se tratar de um teste a fila podera ser executada de forma manual pelo conmando "php artisan queue:work", isso irá fazer o sistema fica 'escutando a fila para ser disparada'
+- Em produção pode usar como gerenciador das filas o "Supervisor"
 - O comand que ira criar as filas podera ser executado pelo comando "php artisan sendMail:interested".'
+- Em Produção podera ser usado o cronJobs para rodar o Comand periodicamente
 
 ### Testando o recebimento dos emails
 **Por se tratar de um teste o sistema ira disparar os emails que serao recebidos usando (https://mailtrap.io/i)**
