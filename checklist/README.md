@@ -63,6 +63,8 @@ do framework Laravel em sua versão mais recente.
 
 
 ## Testes
+- Para executar os testes vc podera rodar o comando "php artisan test" isso fara rodar todos os testes de uma vez, ou entao
+podera rodar o comando com a flag '--filter=' e inserir o nome do teste que deseja realizar.
 
 
 ## License
