@@ -16,7 +16,7 @@ class InterestedRepository implements InterestedInterface
 
     public function getInterestedList()
     {
-        return $this->model->get();
+        return $this->model->get()->sortBy('sent');
     }
 
     public function getInterestedById(int $id)
