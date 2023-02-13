@@ -30,25 +30,23 @@ class EmailService
 
     public function sendMailInterested()
     {
-        $interesteds = $this->interestedInterface->getInterestedList();
-        $dados = new \stdClass();
-        foreach ($interesteds as $interested){
-            $emailDestinatario = $interested->email;
-            $cake = $this->cakeInterface->getCakeById($interested->cake_id);
-            $getAmnoutCake = $cake->amount;
-            $dados->nomeDestinatario = $interested->name;
-            $dados->nomeBolo = $cake->name;
-            if($interested->sent == 0){
-                if($getAmnoutCake > 0){
-//              return new SendInterested($dados);
-//                    Mail::to($emailDestinatario)->send(new SendInterested($dados));
-                    $this->interestedJob::dispatch($emailDestinatario, $dados);
-                    $interested->update(['sent' => 1]);
-                }
-            }
-
-
-        }
+//        $interesteds = $this->interestedInterface->getInterestedList();
+//        $dados = new \stdClass();
+//        foreach ($interesteds as $interested){
+//            $cake = $this->cakeInterface->getCakeById($interested->cake_id);
+//            $getAmnoutCake = $cake->amount;
+//            $dados->nomeDestinatario = $interested->name;
+//            $dados->nomeBolo = $cake->name;
+//            $dados->emailDestinatario = $interested->email;
+//            if($interested->sent == 0){
+//                if($getAmnoutCake > 0){
+//                    $this->interestedJob::dispatch($dados)->delay(now());
+//                    $interested->update(['sent' => 1]);
+//                }
+//            }
+//
+//
+//        }
     }
 }
 

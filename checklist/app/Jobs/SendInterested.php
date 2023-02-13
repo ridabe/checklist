@@ -13,17 +13,16 @@ use Illuminate\Support\Facades\Mail;
 class SendInterested implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    protected $emailDestinatario;
-    protected $dados;
+    public $tries = 2;
+    private $dados;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($emailDestinatario, $dados)
+    public function __construct(\stdClass $dados)
     {
-        $this->emailDestinatario = $emailDestinatario;
         $this->dados = $dados;
     }
 
@@ -34,6 +33,6 @@ class SendInterested implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->emailDestinatario)->send(new \App\Mail\SendInterested($this->dados));
+        Mail::to($this->dados->emailDestinatario)->send(new \App\Mail\SendInterested($this->dados));
     }
 }
